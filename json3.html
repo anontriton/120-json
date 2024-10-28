@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Filtering</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<style>
+    body {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .filter-form {
+        margin: 20px 0;
+        padding: 15px;
+        background-color: #d45645;
+        border-radius: 5px;
+    }
+    select, button {
+        padding: 10px;
+        margin-right: 10px;
+    }
+    .filtered-songs {
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <div class="filter-form">
+        <select id="genreSelect">
+            <option value="">Select a genre...</option>
+        </select>
+        <button id="filterButton">Filter</button>
+    </div>
+    
+    <div id="filteredSongs" class="filtered-songs"></div>
+
+    <script>
+        $(document).ready(function() {
+            let songData;
+            
+            // get JSON data
+            $.get('songs.json', function(data) {
+                songData = data;
+                
+                // get unique genres
+                const genres = new Set();
+                data.songs.forEach(song => {
+                    song.genres.forEach(genre => genres.add(genre));
+                });
+                
+                genres.forEach(genre => {
+                    $('#genreSelect').append(`<option value="${genre}">${genre}</option>`);
+                });
+            });
+            
+            // handle filter button
+            $('#filterButton').click(function() {
+                const selectedGenre = $('#genreSelect').val();
+                if (!selectedGenre) return;
+                
+                const filteredSongs = songData.songs.filter(song => 
+                    song.genres.includes(selectedGenre)
+                );
+                
+                const songsDiv = $('#filteredSongs');
+                songsDiv.empty();
+                filteredSongs.forEach(song => {
+                    songsDiv.append(`<div class="song-title">${song.title}</div>`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

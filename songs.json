@@ -1,0 +1,64 @@
+{
+    "songs": [
+        {
+            "title": "Bohemian Rhapsody",
+            "artist": "Queen",
+            "year": 1975,
+            "genres": ["rock"]
+        },
+        {
+            "title": "Sweet Home Alabama",
+            "artist": "Lynyrd Skynyrd",
+            "year": 1974,
+            "genres": ["rock", "southern rock"]
+        },
+        {
+            "title": "From The Start",
+            "artist": "Laufey",
+            "year": 2023,
+            "genres": ["pop", "jazz"]
+        },
+        {
+            "title": "Scary Monsters and Nice Sprites",
+            "artist": "Skrillex",
+            "year": 2010,
+            "genres": ["electro", "dubstep"]
+        },
+        {
+            "title": "Kerosene",
+            "artist": "David Ryan Harris & Scary Pockets",
+            "year": 2023,
+            "genres": ["funk", "neo-soul"]
+        },
+        {
+            "title": "Smiley Boy",
+            "artist": "Mac Ayres",
+            "year": 2019,
+            "genres": ["soul"]
+        },
+        {
+            "title": "Broke",
+            "artist": "Samm Henshaw",
+            "year": 2018,
+            "genres": ["rnb", "soul"]
+        },
+        {
+            "title": "Gravity",
+            "artist": "Sara Bareilles",
+            "year": 2007,
+            "genres": ["pop", "adult contemporary"]
+        },
+        {
+            "title": "Thunderstruck",
+            "artist": "AC/DC",
+            "year": 1990,
+            "genres": ["rock", "hard rock"]
+        },
+        {
+            "title": "Genesis",
+            "artist": "Polyphia",
+            "year": 2022,
+            "genres": ["metal"]
+        }
+    ]
+}

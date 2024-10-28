@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<style>
+    body {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+    }
+    .song-entry {
+        background-color: #d4f5f6f2;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+    }
+</style>
+
+<body>
+    <div id="songList"></div>
+
+    <script>
+        $(document).ready(function() {
+            $.get('songs.json', function(data) {
+                let html = '';
+                
+                data.songs.forEach(song => {
+                    html += `<div class="song-entry">
+                        ${song.title}<br>
+                        Artist: ${song.artist}<br>
+                        Genre: ${song.genres.join(', ')}<br>
+                        Released: ${song.year}
+                    </div>`;
+                });
+                
+                $('#songList').html(html);
+            });
+        });
+    </script>
+</body>
+
+</html>
